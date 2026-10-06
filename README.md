@@ -27,3 +27,19 @@ Working in a command line environment is recommended for ease of use with git an
 *  Create a RESTful API using FastAPI this must implement:
     * GET on the root giving a welcome message.
     * POST that does model inference.
+
+# Starter-kit details
+The Start Kit contains all the files and folders you need for the project:
+
+**data/**: contains a census.csv file
+**ml/**: contains some starter code for the project
+**data.py**: a script for data pre-processing
+**model.py**: contains functions that train, test, and save the model
+**model/**: an empty folder for you to store the trained model
+**screenshot/**: an empty folder for you to store screenshots to prove your work
+**model_card_template.md**: a template for documenting the model
+**environment.yml**: conda environment for setting up the project
+**train_model.py**: a script for an ML pipeline to take in the data, train the model, and save it.
+**main.py**: contains starter code for creating a RESTful API using FastAPI
+**local_api.py**: contains starter code that uses the requests module to do one POST on your live API.
+**test_ml.py**: contains starter code for you to write tests on the data or the model
