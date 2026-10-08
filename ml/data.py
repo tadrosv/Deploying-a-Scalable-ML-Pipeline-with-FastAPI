@@ -50,16 +50,18 @@ def process_data(
     else:
         y = np.array([])
 
+    #dataframe of catagorixal features
     X_categorical = X[categorical_features].values
+    #dataframe of numerical features
     X_continuous = X.drop(*[categorical_features], axis=1)
 
     if training is True:
         encoder = OneHotEncoder(sparse_output=False, handle_unknown="ignore")
         lb = LabelBinarizer()
-        X_categorical = encoder.fit_transform(X_categorical)
-        y = lb.fit_transform(y.values).ravel()
+        X_categorical = encoder.fit_transform(X_categorical) #converts categorical coumns into binary
+        y = lb.fit_transform(y.values).ravel() #converts target label to binary. flattens 2d array into 1d eg. (1, 4) to (4, )
     else:
-        X_categorical = encoder.transform(X_categorical)
+        X_categorical = encoder.transform(X_categorical) #applies saved mapping, doesnt not relearn. ie. if a new cat showed up, it would hangle according to the handle_unkown param eg. "ignore"
         try:
             y = lb.transform(y.values).ravel()
         # Catch the case where y is None because we're doing inference.
